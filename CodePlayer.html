@@ -31,7 +31,6 @@
 			height: 50px;
 			background-color: lightgray;
 			padding-top: 10px;
-
 		}
 
 		#format {
@@ -117,11 +116,11 @@
   		//adds event listeners to each button
   		for (var i = 0; i < buttonIdsArray.length; i++) {
   			//switched to JS because of 1) issues with concatenating ids in $ selector, 2) .bind/.click/.on("click") wasn't working like addEventListener
-  			document.getElementById(buttonIdsArray[i]).addEventListener("click", testFunction(i));	
+  			document.getElementById(buttonIdsArray[i]).addEventListener("click", toggleOpenClass(i));	
 	  	}
 
 	  	//to prevent scope issues with var i, it is passed into another function
-  		function testFunction (i){
+  		function toggleOpenClass (i){
   			//returned function toggles class open in respective view
   			return function() {
   				console.log(viewIdsArray[i]);
