@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<title>CodePlayer</title>
+	
 	<script 
 		src="https://code.jquery.com/jquery-2.2.3.min.js" 
 		integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" 
@@ -17,7 +19,6 @@
 	<link 
 		href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" 
 		rel="stylesheet">
-	
 	<style>
 
 		* {
@@ -76,7 +77,6 @@
 	
 
 </head>
-
 <body>
 
 	<div id="navbar">
@@ -87,6 +87,7 @@
 		  	<input type="checkbox" class="viewButton" id="javascript-button"><label for="javascript-button">JAVASCRIPT</label>
 		  	<input type="checkbox" class="viewButton" id="output-button"><label for="output-button">OUTPUT</label>
 		</div>
+		
 	</div>
 	
 	<div class="view open" id="html">this is</div>
@@ -119,6 +120,7 @@
 
   		//adds event listeners to each button
   		for (var i = 0; i < buttonIdsArray.length; i++) {
+  			//switched to JS because of 1) issues with concatenating ids in $ selector, 2) .bind/.click/.on("click") wasn't working like addEventListener
   			document.getElementById(buttonIdsArray[i]).addEventListener("click", testFunction(i));	
 	  	}
 
