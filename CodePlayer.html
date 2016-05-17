@@ -64,6 +64,14 @@
 			background-color: yellow;
 			width: 25%;
 		}
+		
+		textarea {
+			width: 100%;
+			height: 100%;
+			outline: none;
+			box-sizing: border-box;
+			padding: 5px;
+		}
 
 	</style>
 	
@@ -85,12 +93,12 @@
 		
 	</div>
 	
-	<div class="view open" id="html">HTML goes in here...</div>
-	<div class="view open" id="css">CSS is here...</div>
-	<div class="view open" id="javascript">Javascript in the house...</div>
+	<div class="view open" id="html"><textarea id="html-input" placeholder="Enter HTML here"></textarea></div>
+	<div class="view open" id="css"><textarea id="css-input" placeholder="Enter CSS here"></textarea></div>
+	<div class="view open" id="javascript"><textarea id="javascript-input" placeholder="Enter Javascript here"></textarea></div>
 	<div class="view open" id="output">Output will be seen here.</div>
 
-<script>
+	<script>
 		
 		//sets up buttons
   		$(function() {
@@ -119,7 +127,7 @@
   			document.getElementById(buttonIdsArray[i]).addEventListener("click", toggleOpenClass(i));	
 	  	}
 
-	  	//to prevent scope issues with var i, it is passed into another function
+	  	//to prevent scope issues with var i, it is passed into another function from addEventListeners
   		function toggleOpenClass (i){
   			//returned function toggles class open in respective view
   			return function() {
@@ -142,7 +150,7 @@
 			$(".view").not(".open").css({"width" : "0%", "display" : "none"}); 
 		}
   		
-</script>
+	</script>
 
 </body>
 </html>
