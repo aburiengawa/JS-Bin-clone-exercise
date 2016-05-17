@@ -139,6 +139,10 @@
 		$("#css-input").keyup(function() {
   			$('#output').append("<style>"+$(this).val()+"</style>");
 		});
+		
+		$("#javascript-input").keyup(function() {
+  			$("#output").append("<script>"+$(this).val()+"<\/script>");
+		});
 
 	  	//to prevent scope issues with var i, it is passed into another function from addEventListeners
   		function toggleOpenClass (i){
