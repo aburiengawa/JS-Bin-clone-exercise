@@ -46,22 +46,18 @@
 		}
 
 		#html {
-			background-color: green;
 			width: 25%;
 		}
 
 		#css {
-			background-color: blue;
 			width: 25%;
 		}
 
 		#javascript {
-			background-color: red;
 			width: 25%;
 		}
 
 		#output {
-			background-color: yellow;
 			width: 25%;
 		}
 		
@@ -93,9 +89,18 @@
 		
 	</div>
 	
-	<div class="view open" id="html"><textarea id="html-input" placeholder="Enter HTML here"></textarea></div>
-	<div class="view open" id="css"><textarea id="css-input" placeholder="Enter CSS here"></textarea></div>
-	<div class="view open" id="javascript"><textarea id="javascript-input" placeholder="Enter Javascript here"></textarea></div>
+	<div class="view open" id="html">
+		<textarea id="html-input" placeholder="Enter HTML here"></textarea>
+	</div>
+	
+	<div class="view open" id="css">
+		<textarea id="css-input" placeholder="Enter CSS here"></textarea>
+	</div>
+	
+	<div class="view open" id="javascript">
+		<textarea id="javascript-input" placeholder="Enter Javascript here"></textarea>
+	</div>
+	
 	<div class="view open" id="output">Output will be seen here.</div>
 
 	<script>
@@ -126,12 +131,19 @@
   			//switched to JS because of 1) issues with concatenating ids in $ selector, 2) .bind/.click/.on("click") wasn't working like addEventListener
   			document.getElementById(buttonIdsArray[i]).addEventListener("click", toggleOpenClass(i));	
 	  	}
+	  	
+	  	$("#html-input").keyup(function() {
+  			$("#output").html($(this).val());
+		});
+
+		$("#css-input").keyup(function() {
+  			$('#output').append("<style>"+$(this).val()+"</style>");
+		});
 
 	  	//to prevent scope issues with var i, it is passed into another function from addEventListeners
   		function toggleOpenClass (i){
   			//returned function toggles class open in respective view
   			return function() {
-  				console.log(viewIdsArray[i]);
   				document.getElementById(viewIdsArray[i]).classList.toggle("open");
   				checkOpenViews();
   			}	
