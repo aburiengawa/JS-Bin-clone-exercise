@@ -109,16 +109,10 @@
   		$(function() {
     		$("#format").buttonset();
   		});
-
-  		//puts button objects into array
-  		var viewButtonsArray = [];
-  		viewButtonsArray.push($(".viewButton"));
-
-  		//takes id from each button and puts into array
+		
+		//takes the id of each input element with class "viewButton" and puts it in an array
   		var buttonIdsArray = [];
-  		for (var i = 0; i < viewButtonsArray[0].length; i++) {
-  			buttonIdsArray.push(viewButtonsArray[0][i].id);
-  		}
+		$('.viewButton').each(function(){ buttonIdsArray.push(this.id) });
   		
   		//takes "-button" out of each button id to get the view id and puts into array
   		var viewIdsArray = [];
@@ -128,7 +122,7 @@
 
   		//adds event listeners to each button
   		for (var i = 0; i < buttonIdsArray.length; i++) {
-  			//switched to JS because of 1) issues with concatenating ids in $ selector, 2) .bind/.click/.on("click") wasn't working like addEventListener
+  			//switched to JS because .click/.on("click") wasn't working like addEventListener
   			document.getElementById(buttonIdsArray[i]).addEventListener("click", toggleOpenClass(i));	
 	  	}
 	  	
