@@ -23,6 +23,7 @@
 
 		html, body {
 			margin: 0;
+			padding: 0;
 			height: 100%;
 		}
 
@@ -43,6 +44,7 @@
 		.view {
 			float: left;
 			height: 100%;
+			font-size: 13px;
 		}
 
 		#html {
@@ -58,7 +60,10 @@
 		}
 
 		#output {
+			border: 1px solid gray;
 			width: 25%;
+			box-sizing: border-box;
+			padding: 5px;
 		}
 		
 		textarea {
@@ -67,6 +72,10 @@
 			outline: none;
 			box-sizing: border-box;
 			padding: 5px;
+		}
+		
+		::-webkit-input-placeholder {
+   			font-size: 13px;
 		}
 
 	</style>
